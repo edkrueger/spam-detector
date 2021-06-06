@@ -35,8 +35,7 @@ This will install the cli `copilot`. You'll use it to deply the application.
 
 For mac or Linux, install with: `brew install aws/tap/copilot-cli`
 
-For windows install with `PS C:\> New-Item -Path 'C:\copilot' -ItemType directory; `
-  Invoke-WebRequest -OutFile 'C:\copilot\copilot.exe' https://github.com/aws/copilot-cli/releases/latest/download/copilot-windows.exe`
+For windows install with `PS C:\> New-Item -Path 'C:\copilot' -ItemType directory; Invoke-WebRequest -OutFile 'C:\copilot\copilot.exe' https://github.com/aws/copilot-cli/releases/latest/download/copilot-windows.exe`
 
 For more information see: https://docs.aws.amazon.com/AmazonECS/latest/developerguide/AWS_Copilot.html#copilot-install
 
