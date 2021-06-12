@@ -1,5 +1,7 @@
 # spam-detector
 
+A model and application to detect if a SMS message is spam or ham. In general, this will serve as a good template for a NLP categorization model and API. Data is from: https://archive.ics.uci.edu/ml/datasets/sms+spam+collection
+
 ## Dev Instructions for App
 Run `pipenv install --dev` to install the env.  
 Run `pipenv run pre-commit install` to initialize the git hooks.  
