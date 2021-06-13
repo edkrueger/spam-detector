@@ -7,12 +7,20 @@ A model and application to detect if a SMS message is spam or ham. In general, t
 Go to your favorite Jupyter Notebook platform and run `pip install -r requirements-notebook-dev.txt`.  
 I use GCP AI Platform Notebooks.  
 
-## Dev Instructions for App
+## Dev Setup Instructions for App
 Run `pipenv install --dev` to install the env.  
 Run `pipenv run pre-commit install` to initialize the git hooks.  
 Run `pipenv run pre-commit run --all-files` if there are file that were committed before adding the git hooks.  
 Activate the shell with: `pipenv shell`  
 Lint with: `pylint app/`  
+
+## Dev Run the App (macOS, Linux)
+Open a pipenv shell and start the app with: `export FLASK_APP=app.app:app && flask run`
+
+## Dev Run the App (Windows Command Prompt)
+Open a pipenv shell.  
+Set the path to the application as an environmental variable: `set FLASK_APP=app.app:app`  
+Run the app:  `flask run`  
 
 ## Build and Run in Docker Locally
 Build: `docker build . -t spam-detector`
