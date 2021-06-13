@@ -62,7 +62,7 @@ For more information see: https://docs.aws.amazon.com/cli/latest/userguide/insta
 
 ### Installing Copilot CLI
 
-This will install the cli `copilot`. You'll use it to deply the application.
+This will install the cli `copilot`. You'll use it to deploy the application.
 
 For mac or Linux, install with: `brew install aws/tap/copilot-cli`
 
@@ -92,7 +92,7 @@ Workload type: <"Request-Driven Web Service" or "Load Balanced Web Service">
 Service name: <any name>  
 Dockerfile: ./Dockerfile.copilot  
 
-Selecting `Request-Driven Web Service` will deploy with AWS App Runner, while "Load Balanced Web Service" will deploy with AWS Fargate behind a load balancer. The first option is idea for intermittently or infrequently accessed endpoints while the second is better for applications that receive consistent traffic with or without spikes. These are the two options for a publically exposed endpoint; there are other options for private services. See: https://aws.github.io/copilot-cli/docs/concepts/services/
+Selecting `Request-Driven Web Service` will deploy with AWS App Runner, while "Load Balanced Web Service" will deploy with AWS Fargate behind a load balancer. The first option is idea for intermittently or infrequently accessed endpoints while the second is better for applications that receive consistent traffic with or without spikes. These are the two options for a publicly exposed endpoint; there are other options for private services. See: https://aws.github.io/copilot-cli/docs/concepts/services/
 
 `copilot` infers the port from the `EXPOSE` statement in the `Dockerfile`. If your `Dockerfile` doesn't specify `EXPOSE`, you'll be prompted for the port as well. Its import to make sure that your `Dockerfile` uses the same port internally as you want to use externally; there is no port mapping on Copilot.
 
@@ -103,4 +103,4 @@ You'll be asked if you'd like to deploy, select `y` and hit enter. Copilot will 
 If you'd like to take this service down, run `copilot app delete` and press `y` to confirm.
 
 ## Note on Model
-The model in the notebooks folder is not automaticallly moved to the app folder. This is intentional. If you want to change your model, you must move the file manually.
+The model in the notebooks folder is not automatically moved to the app folder. This is intentional. If you want to change your model, you must move the file manually.
