@@ -24,7 +24,7 @@ Run the app:  `flask run`
 
 ## Build and Run in Docker Locally
 Build: `docker build . -t spam-detector`
-Run: `PORT=8000 &&  docker run -p 80:${PORT} -e PORT=${PORT} spam-detector`
+To run the app locally on port 80, run: `docker run -p 80:8080 spam-detector`
 
 ## Deploy with AWS Copilot (using AWS ECS and AWS Fargate)
 
