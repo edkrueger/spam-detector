@@ -26,6 +26,26 @@ Run the app:  `flask run`
 Build: `docker build . -t spam-detector`
 To run the app locally on port 80, run: `docker run -p 80:8080 spam-detector`
 
+## Deploy with GCP Cloud Run
+
+### Initializing the gcloud (Cloud SDK) CLI
+To log in to your GCP account with the `gcloud` CLI run `gcloud auth login`  
+For best results upgrade you Cloud SDK components by running `gcloud components update`  
+Run `gcloud init` use the interactive prompts to select your account and project. You do not need to select your default Compute Region and Zone -- you can an select one later.
+
+### Submit the build to Cloud Build and save the image to GCR
+Run `gcloud builds submit --config cloudbuild.yaml .`  
+If you haven't enabled the Cloud Build API, you'll have to do so by selecting y.
+
+### Deploy to Cloud Run
+Find you project id and set it to a local bash variable by running `PROJECT_ID=$(gcloud config get-value project)`  
+Run `gcloud run deploy --image gcr.io/$PROJECT_ID/spam-detector --platform managed` select the default service name (defaults to the name of the container). If you haven't enabled the Cloud Run API, you'll have to do so by selecting y. If you did not select a default Compute Region when initializing the `gcloud` CLI, you'll have to select a Compute Region. You'll be asked to select if you want to allow unauthenticated invocations, select y.
+
+### Clean Up
+In order to shut down the Cloud Run service, run `gcloud run services delete spam-detector` and in the interactive prompt, select the Compute Region you specified before.  
+In order to delete the image from GCR, run: `gcloud container images delete gcr.io/$PROJECT_ID/spam-detector` and select y when asked to confirm in the interactive prompt.
+
+
 ## Deploy with AWS Copilot (using AWS ECS and AWS Fargate)
 
 ### Installing the AWS CLI
