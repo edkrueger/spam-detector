@@ -1,0 +1,4 @@
+*
+!Dockerfile.cloudrun
+!requirements.txt
+!app/**
