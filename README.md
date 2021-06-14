@@ -28,6 +28,13 @@ To run the app locally on port 80, run: `docker run -p 80:8080 spam-detector`
 
 ## Deploy with GCP Cloud Run
 
+### Install the Google Cloud SDK (`gcloud`)
+See https://cloud.google.com/sdk/docs/install for instructions.
+
+### Install `gsutil` 
+See https://cloud.google.com/storage/docs/gsutil_install for instructions.
+
+
 ### Initializing the gcloud (Cloud SDK) CLI
 To log in to your GCP account with the `gcloud` CLI run `gcloud auth login`  
 For best results upgrade you Cloud SDK components by running `gcloud components update`  
@@ -43,7 +50,8 @@ Run `gcloud run deploy --image gcr.io/$PROJECT_ID/spam-detector --platform manag
 
 ### Clean Up
 In order to shut down the Cloud Run service, run `gcloud run services delete spam-detector` and in the interactive prompt, select the Compute Region you specified before.  
-In order to delete the image from GCR, run: `gcloud container images delete gcr.io/$PROJECT_ID/spam-detector` and select y when asked to confirm in the interactive prompt.
+In order to delete the image from GCR, run: `gcloud container images delete gcr.io/$PROJECT_ID/spam-detector` and select y when asked to confirm in the interactive prompt.  
+In order to delete some Google Storage Buckets left as artifacts, run `gsutil rm -r gs://artifacts.$PROJECT_ID.appspot.com` and `gsutil rm -r gs://${PROJECT_ID}_cloudbuild`.  
 
 
 ## Deploy with AWS Copilot (using AWS ECS and AWS Fargate)
